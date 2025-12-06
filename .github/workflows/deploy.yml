@@ -12,7 +12,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/test-deploy-app
+  # Force lowercase pour éviter l'erreur "invalid reference format"
+  IMAGE_NAME: jeremymcdr/test-deploy-app
   SERVICE_NAME: web
 
 jobs:
