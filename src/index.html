@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Deploy App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #e94560, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .status {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            backdrop-filter: blur(10px);
+        }
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .badge {
+            background: #27ae60;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+        .version {
+            color: #f39c12;
+            font-family: monospace;
+        }
+        .deploy-info {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🚀</div>
+        <h1>Test Deploy App</h1>
+        <p>Application de test pour VPS Central Command</p>
+
+        <div class="status">
+            <div class="status-item">
+                <span>Status</span>
+                <span class="badge">En ligne</span>
+            </div>
+            <div class="status-item">
+                <span>Version</span>
+                <span class="version" id="version">v1.0.0</span>
+            </div>
+            <div class="status-item">
+                <span>Build</span>
+                <span class="version" id="build-id">local</span>
+            </div>
+            <div class="status-item">
+                <span>Timestamp</span>
+                <span id="timestamp"></span>
+            </div>
+        </div>
+
+        <div class="deploy-info">
+            <p>Deployed via <strong>VPS Central Command</strong></p>
+            <p>Pipeline: GitHub Actions → VCC → Docker</p>
+        </div>
+    </div>
+
+    <script>
+        // Afficher le timestamp actuel
+        document.getElementById('timestamp').textContent = new Date().toLocaleString('fr-FR');
+
+        // Rafraîchir le timestamp toutes les secondes
+        setInterval(() => {
+            document.getElementById('timestamp').textContent = new Date().toLocaleString('fr-FR');
+        }, 1000);
+    </script>
+</body>
+</html>
