@@ -3,6 +3,9 @@
 
 FROM nginx:alpine
 
+# Link package to repository (inherits public visibility)
+LABEL org.opencontainers.image.source=https://github.com/JeremyMcdr/test-deploy-app
+
 # Copier la configuration nginx personnalisée
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
